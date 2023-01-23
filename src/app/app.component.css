@@ -1,0 +1,21 @@
+
+.label-file {
+    cursor: pointer;
+    color: #198754;
+    border: solid 1px #198754;
+    padding: 2px 12px;
+    border-radius: 4px;
+    text-align: center;
+    transition: all .3s;
+}
+.label-file:hover {
+    background-color: #19875423;
+    transform: scale(1.02);
+}
+.btn{
+    transform: scale(1.02) !important;
+}
+
+.input-file {
+    display: none;
+}

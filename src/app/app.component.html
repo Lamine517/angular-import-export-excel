@@ -1,1 +1,46 @@
-Angular Import / Export Excel 
+<div class="container">
+    <div class="row mt-5">
+    <h1 class="text-center mb-4">Angular Import/Export Data Into Excel</h1>
+        <div class="row py-4 shadow">
+            
+            <div class="d-flex justify-content-between">
+                <h5>Liste des utilisateurs</h5>
+                <div class="d-flex justify-content-end" style="column-gap: 12px;">
+                    <label for="file" class="label-file">Importer le fichier</label>
+                    <input class="input-file" type="file" name="file" id="file" accept=".xlsx"
+                        (change)="ReadExcel($event)">
+
+                    <button class="btn btn-sm btn-success" (click)="ExportExcel()">Export en Excel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row shadow mt-4 border-top border-success border-2">
+            <table class="table table-striped" id="tableUsers">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Profil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of excelData | slice:0:5;">
+                        <td>{{ data.numero }}</td>
+                        <td>{{ data.prenom | titlecase }}</td>
+                        <td>{{ data.nom | uppercase }}</td>
+                        <td>{{ data.email }}</td>
+                        <td>{{ data.profil | titlecase }}</td>
+                    </tr>
+                    <tr *ngIf="excelData.length <= 0">
+                        <td colspan="5" class="text-center">
+                            Aucune donnée disponible
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
